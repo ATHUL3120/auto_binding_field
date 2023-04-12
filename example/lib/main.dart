@@ -28,13 +28,13 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String name='';
-  String mobile='';
-  String email='';
-  int? age=18;
+  String name = '';
+  String mobile = '';
+  String email = '';
+  int? age = 18;
   double? salary;
 
-  GlobalKey<FormState> formKey=GlobalKey<FormState>();
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,70 +50,56 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  'Personal Info',style: Theme.of(context).textTheme.titleLarge,
+                  'Personal Info',
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
-
                 AutoBindingTextField(
                   value: name,
                   onChanged: (value) {
                     setState(() {
-                      name=value;
+                      name = value;
                     });
                   },
-                  decoration: const InputDecoration(
-                    labelText: 'Name'
-                  ),
+                  decoration: const InputDecoration(labelText: 'Name'),
                 ),
-
                 AutoBindingTextField.mobile(
                   value: mobile,
                   onChanged: (value) {
                     setState(() {
-                      mobile=value;
+                      mobile = value;
                     });
                   },
-                  decoration: const InputDecoration(
-                      labelText: 'Mobile'
-                  ),
+                  decoration: const InputDecoration(labelText: 'Mobile'),
                 ),
-
                 AutoBindingTextField.email(
                   value: email,
                   onChanged: (value) {
                     setState(() {
-                      email=value;
+                      email = value;
                     });
                   },
-                  decoration: const InputDecoration(
-                      labelText: 'Email'
-                  ),
+                  decoration: const InputDecoration(labelText: 'Email'),
                 ),
                 AutoBindingNumField(
                   value: age,
                   type: NumberType.onlyPositiveInt,
                   onChanged: (value) {
                     setState(() {
-                      age=value as int?;
+                      age = value as int?;
                     });
                   },
-                  decoration: const InputDecoration(
-                      labelText: 'Age'
-                  ),
+                  decoration: const InputDecoration(labelText: 'Age'),
                 ),
                 AutoBindingNumField(
                   value: salary,
                   type: NumberType.onlyPositiveDecimal,
                   onChanged: (value) {
                     setState(() {
-                      salary=value as double?;
+                      salary = value as double?;
                     });
                   },
-                  decoration: const InputDecoration(
-                      labelText: 'Salary'
-                  ),
+                  decoration: const InputDecoration(labelText: 'Salary'),
                 ),
-
-
               ],
             ),
           ),
@@ -124,41 +110,39 @@ class _MyHomePageState extends State<MyHomePage> {
         children: [
           RichText(
               text: TextSpan(
-                style: Theme.of(context).textTheme.bodyLarge,
-            children: [
-              TextSpan(text: 'Name: $name\n'),
-              TextSpan(text: 'Mobile: $mobile\n'),
-              TextSpan(text: 'Email: $email\n'),
-              TextSpan(text: 'age: $age\n'),
-              TextSpan(text: 'salary: $salary\n'),
-            ]
-          )),
+                  style: Theme.of(context).textTheme.bodyLarge,
+                  children: [
+                TextSpan(text: 'Name: $name\n'),
+                TextSpan(text: 'Mobile: $mobile\n'),
+                TextSpan(text: 'Email: $email\n'),
+                TextSpan(text: 'age: $age\n'),
+                TextSpan(text: 'salary: $salary\n'),
+              ])),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ElevatedButton(onPressed: () {
-                 name='';
-                 mobile='';
-                 email='';
-                 age=null;
-                 salary=null;
-                 setState(() {
-
-                 });
-              }, child: const Text('clear form')),
+              ElevatedButton(
+                  onPressed: () {
+                    name = '';
+                    mobile = '';
+                    email = '';
+                    age = null;
+                    salary = null;
+                    setState(() {});
+                  },
+                  child: const Text('clear form')),
               const SizedBox(
                 width: 5,
               ),
-              ElevatedButton(onPressed: () {
-                if(formKey.currentState!.validate()){
-
-                }
-              }, child: const Text('validate')),
+              ElevatedButton(
+                  onPressed: () {
+                    if (formKey.currentState!.validate()) {}
+                  },
+                  child: const Text('validate')),
             ],
           ),
         ],
       ),
-
     );
   }
 }

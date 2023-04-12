@@ -8,10 +8,12 @@ extension EnumParsing on String? {
     String? value = this;
     return double.tryParse(value.toString());
   }
+
   num? toParseNum() {
     String? value = this;
     return num.tryParse(value.toString());
   }
+
   bool? parseBool() {
     if (this == null) return null;
     if (this!.toLowerCase() == 'true') {
@@ -23,16 +25,17 @@ extension EnumParsing on String? {
     }
   }
 }
-extension NumExt on num?{
-  String? toParseString(){
-    num? value=this;
-    if(value!=null){
-      if(value.toInt().toDouble()==value){
+
+extension NumExt on num? {
+  String? toParseString() {
+    num? value = this;
+    if (value != null) {
+      if (value.toInt().toDouble() == value) {
         return value.toInt().toString();
-      }else{
+      } else {
         return value.toString();
       }
-    }else{
+    } else {
       return null;
     }
   }

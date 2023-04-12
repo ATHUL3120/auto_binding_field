@@ -1,4 +1,4 @@
-enum NumberType{
+enum NumberType {
   integer,
   decimal,
   onlyPositiveInt,
