@@ -30,7 +30,7 @@ Simply import the package and use the `AutoBindingField` widget in your Flutter 
 
 ## Example
 
-[click here](https://github.com/ChegzDev/gradient_elevated_button/blob/master/example/lib/main.dart) for example
+[click here](https://github.com/ChegzDev/auto_binding_field/blob/master/example/lib/main.dart) for example
 
 
 ## Issues and feedback
