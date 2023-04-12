@@ -6,7 +6,7 @@ import 'package:auto_binding_field/util/reg_exp.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 export 'package:auto_binding_field/util/enum.dart';
-
+const double _ourSideLabelGap=8;
 ///This name emphasizes that the widget supports automatic data binding to a data source (the controller).
 class AutoBindingTextField extends StatefulWidget {
   final String? value;
@@ -39,8 +39,8 @@ class AutoBindingTextField extends StatefulWidget {
     this.isPassword = false,
     this.enabled = true,
     this.mandatory = false,
-    this.outSideLabel = true,
-    this.ourSideLabelGap = 12,
+    this.outSideLabel = false,
+    this.ourSideLabelGap = _ourSideLabelGap,
     this.focusNode,
     this.onEditingComplete,
     this.inputFormatters,
@@ -63,8 +63,8 @@ class AutoBindingTextField extends StatefulWidget {
         bool isPassword = false,
         bool enabled = true,
         bool mandatory = false,
-        bool outSideLabel = true,
-        double ourSideLabelGap = 12,
+        bool outSideLabel = false,
+        double ourSideLabelGap = _ourSideLabelGap,
         FocusNode? focusNode,
         void Function()? onEditingComplete,
         List<TextInputFormatter>? inputFormatters,
@@ -121,8 +121,8 @@ class AutoBindingTextField extends StatefulWidget {
         bool isPassword = false,
         bool enabled = true,
         bool mandatory = false,
-        bool outSideLabel = true,
-        double ourSideLabelGap = 12,
+        bool outSideLabel = false,
+        double ourSideLabelGap = _ourSideLabelGap,
         FocusNode? focusNode,
         void Function()? onEditingComplete,
         List<TextInputFormatter>? inputFormatters,
@@ -399,7 +399,7 @@ class AutoBindingNumField extends StatefulWidget {
     this.decoration,
     this.enabled = true,
     this.mandatory = false,
-    this.outSideLabel = true,
+    this.outSideLabel = false,
     this.focusNode,
     this.onEditingComplete,
     this.inputFormatters,
@@ -409,7 +409,7 @@ class AutoBindingNumField extends StatefulWidget {
     this.autoValidateMode=AutovalidateMode.disabled,
     this.onSaved,
     this.isPrimarySelect = true,
-    this.onFieldSubmitted, this.validator,  this.ourSideLabelGap=12,
+    this.onFieldSubmitted, this.validator,  this.ourSideLabelGap=_ourSideLabelGap,
   }) : super(key: key);
 
   factory AutoBindingNumField.decimal(
@@ -423,8 +423,8 @@ class AutoBindingNumField extends StatefulWidget {
         bool isPassword = false,
         bool enabled = true,
         bool mandatory = false,
-        bool outSideLabel = true,
-        double ourSideLabelGap = 12,
+        bool outSideLabel = false,
+        double ourSideLabelGap = _ourSideLabelGap,
         FocusNode? focusNode,
         void Function()? onEditingComplete,
         List<TextInputFormatter>? inputFormatters,
@@ -473,8 +473,8 @@ class AutoBindingNumField extends StatefulWidget {
         bool isPassword = false,
         bool enabled = true,
         bool mandatory = false,
-        bool outSideLabel = true,
-        double ourSideLabelGap = 12,
+        bool outSideLabel = false,
+        double ourSideLabelGap = _ourSideLabelGap,
         FocusNode? focusNode,
         void Function()? onEditingComplete,
         List<TextInputFormatter>? inputFormatters,

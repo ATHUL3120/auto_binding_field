@@ -10,11 +10,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'AutoBindingField',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'AutoBindingField'),
     );
   }
 }
@@ -28,13 +28,12 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String value='hi';
-  double? val=12;
-  void _incrementCounter() {
-    if(formKey.currentState!.validate()){
+  String name='';
+  String mobile='';
+  String email='';
+  int? age=18;
+  double? salary;
 
-    }
-  }
   GlobalKey<FormState> formKey=GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -45,36 +44,118 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Form(
           key: formKey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              const Text(
-                'You have pushed the button this many times:',
-              ),
-              Text(
-                value,
-                style: Theme.of(context).textTheme.headlineMedium,
-              ),
-              AutoBindingNumField(
-                value: val,
-                type: NumberType.onlyNegativeDecimal,
-                onChanged: (value) {
-                  val=value as double?;
-                  setState(() {
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  'Personal Info',style: Theme.of(context).textTheme.titleLarge,
+                ),
 
-                  });
-                },
-                // inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'(^\d*\.?\d*)'))],
-              ),
-            ],
+                AutoBindingTextField(
+                  value: name,
+                  onChanged: (value) {
+                    setState(() {
+                      name=value;
+                    });
+                  },
+                  decoration: const InputDecoration(
+                    labelText: 'Name'
+                  ),
+                ),
+
+                AutoBindingTextField.mobile(
+                  value: mobile,
+                  onChanged: (value) {
+                    setState(() {
+                      mobile=value;
+                    });
+                  },
+                  decoration: const InputDecoration(
+                      labelText: 'Mobile'
+                  ),
+                ),
+
+                AutoBindingTextField.email(
+                  value: email,
+                  onChanged: (value) {
+                    setState(() {
+                      email=value;
+                    });
+                  },
+                  decoration: const InputDecoration(
+                      labelText: 'Email'
+                  ),
+                ),
+                AutoBindingNumField(
+                  value: age,
+                  type: NumberType.onlyPositiveInt,
+                  onChanged: (value) {
+                    setState(() {
+                      age=value as int?;
+                    });
+                  },
+                  decoration: const InputDecoration(
+                      labelText: 'Age'
+                  ),
+                ),
+                AutoBindingNumField(
+                  value: salary,
+                  type: NumberType.onlyPositiveDecimal,
+                  onChanged: (value) {
+                    setState(() {
+                      salary=value as double?;
+                    });
+                  },
+                  decoration: const InputDecoration(
+                      labelText: 'Salary'
+                  ),
+                ),
+
+
+              ],
+            ),
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), 
+      bottomNavigationBar: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          RichText(
+              text: TextSpan(
+                style: Theme.of(context).textTheme.bodyLarge,
+            children: [
+              TextSpan(text: 'Name: $name\n'),
+              TextSpan(text: 'Mobile: $mobile\n'),
+              TextSpan(text: 'Email: $email\n'),
+              TextSpan(text: 'age: $age\n'),
+              TextSpan(text: 'salary: $salary\n'),
+            ]
+          )),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(onPressed: () {
+                 name='';
+                 mobile='';
+                 email='';
+                 age=18;
+                 salary=null;
+              }, child: const Text('clear form')),
+              const SizedBox(
+                width: 5,
+              ),
+              ElevatedButton(onPressed: () {
+                if(formKey.currentState!.validate()){
+
+                }
+              }, child: const Text('validate')),
+            ],
+          ),
+        ],
+      ),
+
     );
   }
 }
