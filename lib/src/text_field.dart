@@ -14,24 +14,43 @@ class AutoBindingTextField extends StatefulWidget {
 
   /// - you should update your 'value' from here by using parameter 'value'
   final void Function(String value)? onChanged;
+  /// - this function same as onSaved on TextFormField
   final void Function(String? value)? onSaved;
+  /// - this function same as onEditingComplete on TextFormField
   final void Function()? onEditingComplete;
+  /// - this function same as onFieldSubmitted on TextFormField
   final void Function(String value)? onFieldSubmitted;
+  /// - this function same as focusNode on TextFormField
   final FocusNode? focusNode;
+  /// - this function same as inputFormatters on TextFormField
   final List<TextInputFormatter>? inputFormatters;
+  /// - this function same as textInputAction on TextFormField
   final TextInputAction? textInputAction;
+  /// - if on first select field then select all text if isPrimary is true
   final bool isPrimarySelect;
+  /// - this function same as validator on TextFormField
   final String? Function(String? value)? validator;
+  /// - this function same as maxLines on TextFormField
   final int maxLines;
+  /// - this function same as keyboardType on TextFormField
   final TextInputType? keyboardType;
+  /// - this function same as autoValidateMode on TextFormField
   final AutovalidateMode? autoValidateMode;
+  /// - if this field is password type.make this as true
   final bool isPassword;
+  /// - this function same as enabled on TextFormField
   final bool enabled;
+  /// - this function same as decoration on TextFormField
   final InputDecoration? decoration;
+  /// - if outside label is true then the label will be shown on the top of the field
   final bool outSideLabel;
+  /// - if outside label is true,and the gap of the label is ourSideLabelGap
   final double ourSideLabelGap;
+  /// - this form is mandatory use this.
   final bool mandatory;
+  /// - this function same as readOnly on TextFormField
   final bool readOnly;
+  /// - this function same as autoFocus on TextFormField
   final bool autoFocus;
 
   ///This name emphasizes that the widget supports automatic data binding to a data source (the controller).
@@ -59,7 +78,7 @@ class AutoBindingTextField extends StatefulWidget {
       this.onFieldSubmitted,
       this.validator})
       : super(key: key);
-
+  /// if the field is mobile type,use this
   factory AutoBindingTextField.mobile(
       {Key? key,
       String? value,
@@ -118,6 +137,7 @@ class AutoBindingTextField extends StatefulWidget {
     );
   }
 
+  /// if the field is email type,use this
   factory AutoBindingTextField.email(
       {Key? key,
       String? value,
@@ -419,26 +439,47 @@ class _AutoBindingTextFieldState extends State<AutoBindingTextField> {
 }
 
 class AutoBindingNumField extends StatefulWidget {
+  /// - use your number variable here for binding
   final num? value;
+  /// - you should update your 'value' from here by using parameter 'value'
   final void Function(num? value)? onChanged;
+  /// - this function same as onSaved on TextFormField
   final void Function(num? value)? onSaved;
+  /// - this function same as onEditingComplete on TextFormField
   final void Function()? onEditingComplete;
+  /// - this function same as onFieldSubmitted on TextFormField
   final void Function(num? value)? onFieldSubmitted;
+  /// - this function same as focusNode on TextFormField
   final FocusNode? focusNode;
+  /// - this function same as inputFormatters on TextFormField
   final List<TextInputFormatter>? inputFormatters;
+  /// - this function same as textInputAction on TextFormField
   final TextInputAction? textInputAction;
+  /// - if on first select field then select all text if isPrimary is true
   final bool isPrimarySelect;
+  /// - this function same as validator on TextFormField
   final String? Function(num? value)? validator;
+  /// - this function same as maxLines on TextFormField
   final int maxLines;
+  /// - this function same as keyboardType on TextFormField
   final TextInputType? keyboardType;
+  /// - this function same as autoValidateMode on TextFormField
   final AutovalidateMode? autoValidateMode;
+  /// - this function same as enabled on TextFormField
   final bool enabled;
+  /// - this function same as decoration on TextFormField
   final InputDecoration? decoration;
+  /// - if outside label is true then the label will be shown on the top of the field
   final bool outSideLabel;
+  /// - if outside label is true,and the gap of the label is ourSideLabelGap
   final double ourSideLabelGap;
+  /// - this form is mandatory use this.
   final bool mandatory;
+  /// - this function same as readOnly on TextFormField
   final bool readOnly;
+  /// - this function same as autoFocus on TextFormField
   final bool autoFocus;
+  /// - select your Number type, the default type is NumberType.decimal
   final NumberType type;
 
   const AutoBindingNumField({
