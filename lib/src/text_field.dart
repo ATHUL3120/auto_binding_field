@@ -328,12 +328,11 @@ class _AutoBindingTextFieldState extends State<AutoBindingTextField> {
       decoration =const InputDecoration();
     }
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-
       if (controller.text != widget.value) {
         controller.text = widget.value?.toString() ?? "";
       }
     });
-    Widget textField=TextFormField(
+    Widget textField = TextFormField(
       autofocus: widget.autoFocus,
       enabled: widget.enabled,
       readOnly: widget.readOnly,
@@ -360,11 +359,12 @@ class _AutoBindingTextFieldState extends State<AutoBindingTextField> {
         SizedBox(height: widget.ourSideLabelGap,),
         textField
       ],
-    ):textField;
+    ):textField ;
   }
 }
 
 class AutoBindingNumField extends StatefulWidget {
+
   final num? value;
   final void Function(num? value)? onChanged;
   final void Function(num? value)? onSaved;
@@ -384,11 +384,9 @@ class AutoBindingNumField extends StatefulWidget {
   final double ourSideLabelGap;
   final bool mandatory;
   final bool readOnly;
-
   final bool autoFocus;
-
-
   final NumberType type;
+
   const AutoBindingNumField({
     Key? key,
     required this.value,
@@ -546,6 +544,15 @@ class _AutoBindingNumFieldState extends State<AutoBindingNumField> {
   }
   @override
   Widget build(BuildContext context) {
+
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      if (controller.text !=( widget.value?.toParseString() ?? "")) {
+        controller.text = widget.value?.toString() ?? "";
+      }
+
+    });
+
+
     late final InputDecoration decoration;
     if(widget.decoration!=null){
       if(widget.outSideLabel){
@@ -607,12 +614,8 @@ class _AutoBindingNumFieldState extends State<AutoBindingNumField> {
         }else{
           outSideLabelText=const SizedBox();
         }
-        WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
 
-          if (controller.text !=( widget.value?.toParseString() ?? "")) {
-            controller.text = widget.value?.toString() ?? "";
-          }
-        });
+
         decoration =InputDecoration(
           labelStyle: null,
           label: null,
@@ -743,10 +746,10 @@ class _AutoBindingNumFieldState extends State<AutoBindingNumField> {
     ):textField;
   }
 
-  @override
-  void didUpdateWidget(AutoBindingNumField oldWidget) {
-    super.didUpdateWidget(oldWidget);
-  }
+  // @override
+  // void didUpdateWidget(AutoBindingNumField oldWidget) {
+  //   super.didUpdateWidget(oldWidget);
+  // }
 }
 
 

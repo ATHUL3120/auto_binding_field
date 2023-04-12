@@ -140,8 +140,11 @@ class _MyHomePageState extends State<MyHomePage> {
                  name='';
                  mobile='';
                  email='';
-                 age=18;
+                 age=null;
                  salary=null;
+                 setState(() {
+
+                 });
               }, child: const Text('clear form')),
               const SizedBox(
                 width: 5,
