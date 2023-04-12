@@ -1,5 +1,5 @@
 name: auto_binding_field
-description: A new Flutter project.
+description: This package that automatically updates input field state based on bound variable changes, and vice versa.
 version: 0.0.1
 homepage:
 environment:

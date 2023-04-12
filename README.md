@@ -1,39 +1,44 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
+# GradientElevatedButton
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
+[![pub package](https://img.shields.io/pub/v/like_button.svg)](https://pub.dartlang.org/packages/like_button) [![GitHub license](https://img.shields.io/github/license/fluttercandies/like_button)](https://github.com/fluttercandies/like_button/blob/master/LICENSE)
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+A GradientElevatedButton is a custom button widget that provides a visually appealing gradient background. It inherits from the ElevatedButton widget, which is a built-in button widget that displays a material-style raised button. The GradientElevatedButton extends the functionality of the ElevatedButton by adding the ability to specify a gradient background for the button.
 
-## Features
+[Demo](https://github.com/ChegzDev/gradient_elevated_button/blob/master/example/lib/main.dart)
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
 
-## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+Simply import the package and use the `GradientElevatedButton` widget in your Flutter app. Here is an example:
 
-```dart
-const like = 'sample';
-```
+```dart    
+GradientElevatedButton(
+  onPressed: () {
 
-## Additional information
+  },
+  style: GradientElevatedButton.styleFrom(
+    gradient: const LinearGradient(colors: [
+      Color.fromARGB(255, 166, 206, 57),
+      Color.fromARGB(255, 0, 175, 173),
+    ],
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+    ),
+  ),
+  child: const Text("This is Gradient Elevated Button"),
+),
+```  
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+## Example
+
+[click here](https://github.com/ChegzDev/gradient_elevated_button/blob/master/example/lib/main.dart) for example
+
+
+## Issues and feedback
+
+Please file issues and feedback using the Github issues page for this repository.
+
+If you have any suggestions or feedback, please send an email to __chegz.dev@gmail.com__ and we'll be happy to hear from you!
