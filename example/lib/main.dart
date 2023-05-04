@@ -32,6 +32,16 @@ class _MyHomePageState extends State<MyHomePage> {
   String mobile = '';
   String email = '';
   int? age = 18;
+  double tax=12;
+  double? price;
+  double? get priceWithTax=>price==null?null: (price??0)+(price??0)*(tax)/100;
+  set priceWithTax(double? value){
+    if(value==null){
+      price=null;
+    }else{
+      price= value*100/(100+tax);
+    }
+  }
   double? salary;
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -65,13 +75,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 AutoBindingTextField.mobile(
                   value: mobile,
                   onChanged: (value) {
+
                     setState(() {
                       mobile = value;
                     });
                   },
                   decoration: const InputDecoration(labelText: 'Mobile'),
                 ),
-                AutoBindingTextField.email(
+                /*AutoBindingTextField.email(
                   value: email,
                   onChanged: (value) {
                     setState(() {
@@ -79,13 +90,23 @@ class _MyHomePageState extends State<MyHomePage> {
                     });
                   },
                   decoration: const InputDecoration(labelText: 'Email'),
-                ),
+                ),*/
                 AutoBindingNumField(
                   value: age,
-                  type: NumberType.onlyPositiveInt,
+                  // type: NumberType.onlyPositiveInt,
                   onChanged: (value) {
                     setState(() {
-                      age = value as int?;
+                      age = value?.toInt();
+                    });
+                  },
+                  decoration: const InputDecoration(labelText: 'Age'),
+                ),
+                AutoBindingNumField(
+                  value: 1/(salary??0),
+                  // type: NumberType.onlyPositiveInt,
+                  onChanged: (value) {
+                    setState(() {
+                      salary = 1/ (value?.toDouble()??0);
                     });
                   },
                   decoration: const InputDecoration(labelText: 'Age'),
@@ -96,6 +117,37 @@ class _MyHomePageState extends State<MyHomePage> {
                   onChanged: (value) {
                     setState(() {
                       salary = value as double?;
+                    });
+                  },
+                  decoration: const InputDecoration(labelText: 'Salary'),
+                ),
+
+                AutoBindingNumField(
+                  value: price,
+                  type: NumberType.onlyPositiveDecimal,
+                  onChanged: (value) {
+                    setState(() {
+                      price = value as double?;
+                    });
+                  },
+                  decoration: const InputDecoration(labelText: 'Price'),
+                ),
+                AutoBindingNumField(
+                  value: priceWithTax,
+                  type: NumberType.onlyPositiveDecimal,
+                  onChanged: (value) {
+                    setState(() {
+                      priceWithTax = value as double?;
+                    });
+                  },
+                  decoration: const InputDecoration(labelText: 'Price with Tax'),
+                ),
+                AutoBindingNumField(
+                  value: tax,
+                  type: NumberType.onlyPositiveDecimal,
+                  onChanged: (value) {
+                    setState(() {
+                      priceWithTax = value as double?;
                     });
                   },
                   decoration: const InputDecoration(labelText: 'Salary'),
@@ -144,5 +196,15 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
     );
+  }
+  Future hi()async{
+
+  }
+  his()async{
+    await hi().then((value) {
+      if (!context.mounted) return;
+      context.size;
+    });
+
   }
 }

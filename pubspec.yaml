@@ -1,6 +1,6 @@
 name: auto_binding_field
 description: This package that automatically updates input field state based on bound variable changes, and vice versa.
-version: 0.0.4
+version: 0.0.7
 homepage: https://github.com/ChegzDev/auto_binding_field
 repository: https://github.com/ChegzDev/auto_binding_field
 environment:

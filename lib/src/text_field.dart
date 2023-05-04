@@ -663,6 +663,17 @@ class _AutoBindingNumFieldState extends State<AutoBindingNumField> {
     } else {
       focusNode = FocusNode();
     }
+    controller.addListener(() {
+      if(controller.text==''){
+        controller.selection = TextSelection(
+            baseOffset: 0, extentOffset: controller.text.length);
+      }
+      if(controller.selection.baseOffset<0){
+        controller.selection=TextSelection(
+            baseOffset: controller.text.length, extentOffset: controller.text.length);
+      }
+
+    });
     if (widget.isPrimarySelect) {
       focusNode.addListener(() {
         if (focusNode.hasFocus) {
@@ -671,6 +682,7 @@ class _AutoBindingNumFieldState extends State<AutoBindingNumField> {
         }
       });
     }
+
   }
 
   @override
@@ -681,10 +693,18 @@ class _AutoBindingNumFieldState extends State<AutoBindingNumField> {
 
   @override
   Widget build(BuildContext context) {
+
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      if (controller.text != (widget.value?.toParseString() ?? "")) {
-        controller.text = widget.value?.toString() ?? "";
+
+      if(!focusNode.hasFocus){
+        if (controller.text.toParseDouble()!=widget.value&&
+            controller.text != (widget.value?.toParseString() ?? "")) {
+
+          controller.text = widget.value?.toString() ?? "";
+        }
+
       }
+
     });
 
     late final InputDecoration decoration;
